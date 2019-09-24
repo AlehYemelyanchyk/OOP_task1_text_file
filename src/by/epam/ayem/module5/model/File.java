@@ -6,19 +6,14 @@ package by.epam.ayem.module5.model;
 
 public class File {
 
-    private String fileName;
-    private String text;
+    private String title;
     private Directory directory;
+    private String text;
 
-    public File(String fileName) {
-        this.fileName = fileName;
-        this.text = "";
-    }
-
-    public File(String fileName, Directory directory) {
-        this.fileName = fileName;
-        this.text = "";
+    public File(String title, Directory directory, String text) {
+        this.title = title;
         this.directory = directory;
+        this.text = text;
     }
 
     public String getText() {
@@ -29,12 +24,12 @@ public class File {
         this.text = text;
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Directory getDirectory() {

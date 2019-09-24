@@ -6,22 +6,23 @@ package by.epam.ayem.module5;
 
 import by.epam.ayem.module5.model.Directory;
 import by.epam.ayem.module5.model.File;
-import by.epam.ayem.module5.model.FileCreator;
+import by.epam.ayem.module5.service.FileService;
 
 public class FileMain {
 
     public static void main(String[] args) {
 
-        FileCreator fileCreator = new FileCreator();
-        File newFile = fileCreator.createFile("First text");
-        Directory newDirectory = fileCreator.createDirectory("D:/user/text");
-        fileCreator.changeTitle(newFile, newDirectory, "First text");
-        fileCreator.printText(newFile, newDirectory);
-        fileCreator.addText(newFile, newDirectory, "First sentence.");
-        fileCreator.addText(newFile, newDirectory, "Second sentence.");
-        fileCreator.printText(newFile, newDirectory);
-        fileCreator.deleteText(newFile, newDirectory);
-        fileCreator.printText(newFile, newDirectory);
+        FileService fileService = new FileService();
+        Directory directory = new Directory("D:/user/text");
+        File file = fileService.createFile("First text", directory, "Once upon a time there was a kingdom. " +
+                "A brave knight lived in the kingdom. ");
+        fileService.printText(file, directory);
+        fileService.changeTitle(file, directory, "Second text");
+        fileService.printText(file, directory);
+        fileService.addText(file, directory, "There was also a bad bad wizard");
+        fileService.printText(file, directory);
+        fileService.deleteText(file, directory);
+        fileService.printText(file, directory);
 
     }
 }
